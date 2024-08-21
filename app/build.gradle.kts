@@ -78,7 +78,6 @@ ktlint {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -99,6 +98,7 @@ dependencies {
     implementation(libs.retrofit.gson)
     implementation(libs.okhttp)
     implementation(libs.koin.android)
+    implementation(libs.androidx.paging.runtime)
     testImplementation(libs.junit)
     testImplementation(libs.mockk.agent)
     testImplementation(libs.coroutine.test)
