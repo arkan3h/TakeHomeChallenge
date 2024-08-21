@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.main.MainActivity">
+    tools:context=".presentation.favorite.FavoriteActivity">
 
     <View
         android:id="@+id/bg_header"
@@ -16,67 +16,44 @@
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bg_search"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageButton
+        android:id="@+id/btn_back_favorite"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_back"
+        android:background="@color/transparent"
+        android:elevation="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/bg_header"
+        app:layout_constraintBottom_toBottomOf="@id/bg_header"
+        android:contentDescription="@string/desc_back_button" />
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="32dp"
+        android:background="@color/md_theme_onBackground"
+        app:layout_constraintStart_toEndOf="@id/btn_back_favorite"
+        app:layout_constraintTop_toTopOf="@id/bg_header"
+        app:layout_constraintBottom_toBottomOf="@id/bg_header"/>
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:text="@string/text_header"
+        android:text="@string/text_favorite"
         android:textSize="20sp"
         android:textStyle="bold"
         android:maxLines="1"
         android:ellipsize="end"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btn_back_favorite"
         app:layout_constraintEnd_toEndOf="@id/bg_header"
         app:layout_constraintTop_toTopOf="@id/bg_header"
         app:layout_constraintBottom_toBottomOf="@id/bg_header"/>
 
-    <View
-        android:id="@+id/bg_search"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_rounded_48dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/bg_favorite"/>
-
-    <ImageButton
-        android:id="@+id/btn_search"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/desc_btn_search"
-        android:padding="12dp"
-        android:src="@drawable/ic_search"
-        android:background="@color/transparent"
-        app:layout_constraintTop_toTopOf="@id/bg_search"
-        app:layout_constraintStart_toStartOf="@id/bg_search"/>
-
-    <View
-        android:id="@+id/bg_favorite"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_rounded_48dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <ImageButton
-        android:id="@+id/btn_favorite"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:contentDescription="@string/desc_btn_favorite"
-        android:padding="12dp"
-        android:src="@drawable/ic_favorite"
-        android:scaleType="centerCrop"
-        android:background="@color/transparent"
-        app:layout_constraintTop_toTopOf="@id/bg_favorite"
-        app:layout_constraintStart_toStartOf="@id/bg_favorite"/>
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_character"
+        android:id="@+id/rv_favorite_character"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"

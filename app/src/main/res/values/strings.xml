@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Take Home Challenge</string>
+    <string name="text_header">Rick and Morty</string>
+    <string name="desc_btn_search">Search Button</string>
+    <string name="desc_btn_favorite">Favorite Button</string>
+    <string name="desc_char_image">Character Image</string>
+    <string name="desc_back_button">Back Button</string>
+    <string name="desc_character_image">Gambar Karakter</string>
+    <string name="text_favorite">Favorite</string>
+    <string name="text_search_hint">Input character\'s name</string>
 </resources>
