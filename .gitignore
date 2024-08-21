@@ -22,6 +22,7 @@ render.experimental.xml
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/.idea/gradle.xml
 .DS_Store
 /build
 /captures

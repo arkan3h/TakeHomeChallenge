@@ -17,6 +17,7 @@ interface THCApiService {
 
     @GET("character")
     suspend fun searchCharacter(
+        @Query("page") page: Int = 1,
         @Query("name") name: String?,
     ): CharacterResponse
 

@@ -7,6 +7,7 @@ import com.arkan.takehomechallenge.data.repository.CharacterRepositoryImpl
 import com.arkan.takehomechallenge.data.source.network.services.THCApiService
 import com.arkan.takehomechallenge.presentation.detail.DetailViewModel
 import com.arkan.takehomechallenge.presentation.main.MainViewModel
+import com.arkan.takehomechallenge.presentation.search.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModelOf
 import org.koin.dsl.module
 
@@ -30,6 +31,7 @@ object AppModules {
         module {
             viewModelOf(::MainViewModel)
             viewModelOf(::DetailViewModel)
+            viewModelOf(::SearchViewModel)
         }
 
     val modules =

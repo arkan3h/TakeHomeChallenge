@@ -4,18 +4,15 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.arkan.takehomechallenge.data.datasource.CharacterDataSource
-import com.arkan.takehomechallenge.data.mapper.toCharacter
 import com.arkan.takehomechallenge.data.model.Character
 import com.arkan.takehomechallenge.data.paging.CharacterPagingSource
-import com.arkan.takehomechallenge.utils.ResultWrapper
-import com.arkan.takehomechallenge.utils.proceedFlow
+import com.arkan.takehomechallenge.data.paging.SearchCharacterPagingSource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 interface CharacterRepository {
     fun getAllCharacter(): Flow<PagingData<Character>>
 
-    fun searchCharacter(name: String): Flow<ResultWrapper<List<Character>>>
+    fun searchCharacter(name: String?): Flow<PagingData<Character>>
 }
 
 class CharacterRepositoryImpl(
@@ -32,9 +29,14 @@ class CharacterRepositoryImpl(
         ).flow
     }
 
-    override fun searchCharacter(name: String): Flow<ResultWrapper<List<Character>>> {
-        return proceedFlow {
-            dataSource.searchCharacter(name).results.toCharacter()
-        }
+    override fun searchCharacter(name: String?): Flow<PagingData<Character>> {
+        return Pager(
+            config =
+                PagingConfig(
+                    pageSize = 20,
+                    enablePlaceholders = false,
+                ),
+            pagingSourceFactory = { SearchCharacterPagingSource(dataSource, name) },
+        ).flow
     }
 }

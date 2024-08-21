@@ -1,8 +1,8 @@
-package com.arkan.takehomechallenge.presentation.favorite.adapter
+package com.arkan.takehomechallenge.presentation.search.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
@@ -10,12 +10,13 @@ import com.arkan.takehomechallenge.data.model.Character
 import com.arkan.takehomechallenge.databinding.ItemCharacterBinding
 import com.arkan.takehomechallenge.utils.OnItemCLickedListener
 
-class FavoriteAdapter(
+class SearchAdapter(
     private val listener: OnItemCLickedListener<Character>,
-) : RecyclerView.Adapter<FavoriteAdapter.FavoriteViewHolder>() {
-    private val asyncDataDiffer =
-        AsyncListDiffer(
-            this,
+) : PagingDataAdapter<Character, SearchAdapter.SearchViewHolder>(
+        DIFF_CALLBACK,
+    ) {
+    companion object {
+        private val DIFF_CALLBACK =
             object : DiffUtil.ItemCallback<Character>() {
                 override fun areItemsTheSame(
                     oldItem: Character,
@@ -30,18 +31,14 @@ class FavoriteAdapter(
                 ): Boolean {
                     return oldItem.hashCode() == newItem.hashCode()
                 }
-            },
-        )
-
-    fun submitData(items: List<Character>) {
-        asyncDataDiffer.submitList(items)
+            }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
-    ): FavoriteViewHolder {
-        return FavoriteViewHolder(
+    ): SearchViewHolder {
+        return SearchViewHolder(
             ItemCharacterBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -52,15 +49,16 @@ class FavoriteAdapter(
     }
 
     override fun onBindViewHolder(
-        holder: FavoriteViewHolder,
+        holder: SearchViewHolder,
         position: Int,
     ) {
-        holder.bind(asyncDataDiffer.currentList[position])
+        val character = getItem(position)
+        if (character != null) {
+            holder.bind(character)
+        }
     }
 
-    override fun getItemCount(): Int = asyncDataDiffer.currentList.size
-
-    class FavoriteViewHolder(
+    class SearchViewHolder(
         private val binding: ItemCharacterBinding,
         private val listener: OnItemCLickedListener<Character>,
     ) : RecyclerView.ViewHolder(binding.root) {

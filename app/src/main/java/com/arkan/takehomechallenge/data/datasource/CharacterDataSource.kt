@@ -6,7 +6,10 @@ import com.arkan.takehomechallenge.data.source.network.services.THCApiService
 interface CharacterDataSource {
     suspend fun getAllCharacter(page: Int): CharacterResponse
 
-    suspend fun searchCharacter(name: String): CharacterResponse
+    suspend fun searchCharacter(
+        page: Int,
+        name: String?,
+    ): CharacterResponse
 }
 
 class CharacterApiDataSource(
@@ -16,7 +19,10 @@ class CharacterApiDataSource(
         return service.getAllCharacter(page)
     }
 
-    override suspend fun searchCharacter(name: String): CharacterResponse {
-        return service.searchCharacter(name)
+    override suspend fun searchCharacter(
+        page: Int,
+        name: String?,
+    ): CharacterResponse {
+        return service.searchCharacter(page, name)
     }
 }

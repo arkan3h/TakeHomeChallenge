@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="@id/bg_header"/>
 
     <SearchView
-        android:id="@+id/sb_terminal_search"
+        android:id="@+id/sb_character_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
