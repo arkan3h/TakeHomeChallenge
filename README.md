@@ -39,4 +39,4 @@ An android application using Rick Morty API. This app have 4 pages, a home page,
 
 
 ## <a name="apk-link"></a> APK Link :
-https://mega.nz/file/ChNEnQ6C#YEru4YUN1CUnydeODmYa0tTYsqUh7sK3OqA0oIcXh5k
+https://mega.nz/file/69MmxRyJ#WXPVKemWaDIEtfEMj5qYbEN78RW7cQaPIOtRl9Fzv5g

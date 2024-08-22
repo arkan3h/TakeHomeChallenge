@@ -40,6 +40,10 @@ android {
         viewBinding = true
         buildConfig = true
     }
+    packagingOptions {
+        exclude("META-INF/LICENSE.md")
+        exclude("META-INF/LICENSE-notice.md")
+    }
     flavorDimensions += "env"
     productFlavors {
         create("production") {
