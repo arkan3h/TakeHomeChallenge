@@ -54,9 +54,9 @@ class SearchActivity : AppCompatActivity() {
                 }
 
                 override fun onQueryTextChange(newText: String?): Boolean {
-//                    newText?.let {
-//                        getCharacterData(it)
-//                    }
+                    newText?.let {
+                        getCharacterData(it)
+                    }
                     return false
                 }
             },

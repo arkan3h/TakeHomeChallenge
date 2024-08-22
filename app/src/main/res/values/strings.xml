@@ -8,4 +8,11 @@
     <string name="desc_character_image">Gambar Karakter</string>
     <string name="text_favorite">Favorite</string>
     <string name="text_search_hint">Input character\'s name</string>
+    <string name="desc_btn_delete">Delete Button</string>
+    <string name="text_delete_confirmation">Are you sure to delete all favorites?</string>
+    <string name="text_cancel">Cancel</string>
+    <string name="text_delete">Delete</string>
+    <string name="text_back">Back</string>
+    <string name="text_success_delete_favorites">Successfully deleted all favorites</string>
+    <string name="text_failed_delete_favorites">Failed to delete all favorites</string>
 </resources>
